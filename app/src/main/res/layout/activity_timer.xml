@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TimerActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        >
+
+        <TextView
+            android:id="@+id/timer_tv_countdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00 : 00 : 00"
+            android:textSize="30sp"
+            android:layout_centerInParent="true"
+            />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/circularProgressIndicator"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:indeterminate="false"
+            app:indicatorColor="#000000"
+            app:indicatorSize="200dp"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            app:trackColor="#4CAF50"
+            app:trackThickness="15dp" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30sp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/timer_btn_startCountDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start"
+            android:layout_gravity="center" />
+
+        <Button
+            android:id="@+id/timer_btn_pause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pause"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30sp"/>
+
+    </LinearLayout>
+    
+</LinearLayout>
