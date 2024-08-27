@@ -8,48 +8,18 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/alarm_rv_listAlarm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_selectedTime"
-        android:text="08 : 45 PM"
-        android:textAlignment="center"
-        android:textSize="45sp"/>
+        android:layout_margin="20dp"/>
 
-    <Button
-        android:id="@+id/btn_selectTime"
-        android:layout_width="match_parent"
-        android:layout_height="70sp"
-        android:layout_marginTop="20sp"
-        android:layout_marginHorizontal="40sp"
-        android:text="Select Time"
-        android:textSize="26sp"/>
-
-    <Button
-        android:id="@+id/btn_setAlarm"
-        android:layout_width="match_parent"
-        android:layout_height="70sp"
-        android:layout_marginTop="20sp"
-        android:layout_marginHorizontal="40sp"
-        android:text="Set Alarm"
-        android:textSize="26sp"/>
-
-    <Button
-        android:id="@+id/btn_cancelAlarm"
-        android:layout_width="match_parent"
-        android:layout_height="70sp"
-        android:layout_marginTop="20sp"
-        android:layout_marginHorizontal="40sp"
-        android:text="Cancel Alarm"
-        android:textSize="26sp"/>
-
-    <Button
-        android:id="@+id/btn_switchToTimer"
-        android:layout_width="match_parent"
-        android:layout_height="70sp"
-        android:layout_marginTop="20sp"
-        android:layout_marginHorizontal="40sp"
-        android:text="Switch to timer"
-        android:textSize="26sp"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/alarm_btn_addAlarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_add_24"
+        android:layout_gravity="end"
+        android:layout_margin="20dp"/>
 
 </LinearLayout>

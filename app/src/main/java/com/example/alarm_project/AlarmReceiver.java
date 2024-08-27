@@ -9,7 +9,6 @@ import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
@@ -28,20 +27,6 @@ public class AlarmReceiver extends BroadcastReceiver {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
-        Bundle bundle_stopAlarm = new Bundle();
-        bundle_stopAlarm.putInt("userChoice", 1);
-        Intent intent_stopAlarm = new Intent(context, DestinationActivity.class);
-        intent_stopAlarm.putExtras(bundle_stopAlarm);
-        PendingIntent pi_stopAlarm = PendingIntent.getBroadcast(context, 1, intent_stopAlarm,
-                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-
-//        Bundle bundlePauseAlarm = new Bundle();
-//        bundlePauseAlarm.putInt("userChoice", 2);
-//        Intent pauseAlarmFor5Minute = new Intent(context, DestinationActivity.class);
-//        pauseAlarmFor5Minute.putExtras(bundlePauseAlarm);
-//        PendingIntent pauseAlarmPendingIntent = PendingIntent.getBroadcast(context, 1, pauseAlarmFor5Minute,
-//                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "channel_id")
                 .setSmallIcon(R.drawable.alarm_icon)
                 .setContentTitle("Alarm")
@@ -49,8 +34,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setAutoCancel(true)
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setPriority(Notification.PRIORITY_HIGH)
-                .setContentIntent(pendingIntent)
-                .addAction(R.drawable.alarm_icon, "Stop alarm", pi_stopAlarm);
+                .setContentIntent(pendingIntent);
 //                .addAction(R.drawable.alarm_icon, "Pause alarm for 5 minutes", pauseAlarmPendingIntent);
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
@@ -67,3 +51,18 @@ public class AlarmReceiver extends BroadcastReceiver {
         notificationManagerCompat.notify(123, builder.build());
     }
 }
+
+
+//        Bundle bundle_stopAlarm = new Bundle();
+//        bundle_stopAlarm.putInt("userChoice", 1);
+//        Intent intent_stopAlarm = new Intent(context, StopAlarmActivity.class);
+//        intent_stopAlarm.putExtras(bundle_stopAlarm);
+//        PendingIntent pi_stopAlarm = PendingIntent.getBroadcast(context, 1, intent_stopAlarm,
+//                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+//        Bundle bundlePauseAlarm = new Bundle();
+//        bundlePauseAlarm.putInt("userChoice", 2);
+//        Intent pauseAlarmFor5Minute = new Intent(context, DestinationActivity.class);
+//        pauseAlarmFor5Minute.putExtras(bundlePauseAlarm);
+//        PendingIntent pauseAlarmPendingIntent = PendingIntent.getBroadcast(context, 1, pauseAlarmFor5Minute,
+//                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
